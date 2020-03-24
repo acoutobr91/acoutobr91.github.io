@@ -1,0 +1,129 @@
+<div class="item">
+    <div>Nome da Oportunidade</div>
+    <div>
+        <input type="text" name="opt_name" placeholder='Nome da Oportunidade' value={{clientes.opt_name}}>
+    </div>
+</div>
+<section class="cabecalho">
+
+    <div class="item">
+        <div>Nome do Cliente</div>
+        <div>
+            <input type="text" name="nome_cliente" placeholder='Nome do Cliente' value={{clientes.nome_cliente}}>
+        </div>
+    </div>
+
+    <div class="item">
+        <div>CPF do Cliente</div>
+        <div>
+            <input type="text" name="CPF_cliente" placeholder='xxx.xxx.xxx-xx' value={{clientes.CPF_cliente}}>
+        </div>
+    </div>
+    <div class="item">
+        <div>Regional</div>
+        <div>
+            <input type="text" name="regional" placeholder='Regional' value={{clientes.regional}}>
+        </div>
+    </div>
+    <div class="item">
+        <div>Nome do Consultor</div>
+        <div>
+            <input type="text" name="nome_consultor" placeholder='Nome do consultor' value={{clientes.nome_consultor}}>
+        </div>
+    </div>
+    <div class="item">
+        <div>Área do CPR</div>
+        <div>
+            <input type="text" name="area_cpr" placeholder='m²' value={{clientes.area_cpr}}>
+        </div>
+    </div>
+    <div class="item">
+        <div>Quantidade de Sacas</div>
+        <div>
+            <input type="text" name="qnt_sacas" placeholder='Qtd de sacas' value={{clientes.qnt_sacas}}>
+        </div>
+    </div>
+    <div class="item">
+        <div>N° do CPR</div>
+        <div>
+            <input type="text" name="no_cpr" placeholder='numero-ano/ano' value={{clientes.no_cpr}}>
+        </div>
+    </div>
+    <div class="item">
+        <div>Local de entrega</div>
+        <div>
+            <input type="text" name="local_entrega" placeholder='Local de Entrega' value={{clientes.local_entrega}}>
+        </div>
+    </div>
+    <div class="item">
+        <div>Local da Lavoura</div>
+        <div>
+            <input type="text" name="local_lavoura" placeholder='Local da Lavoura' value={{clientes.local_lavoura}}>
+        </div>
+    </div>
+    
+            
+</section>
+
+
+<section class="planCliente" >
+    <div class="divisao">
+        <h4>Planejamento Cliente (PLANTIO SAFRA 2019/20)</h4>
+    </div>
+    <div class="item">
+        <div>Quantidade de Culturas</div>
+        <div>
+         <input id = "qnt_cult" type="number" name="qnt_cultura" value={{clientes.qnt_cultura}}>
+        </div>
+    </div>   
+    <table style="width:100%">
+        <tr>
+            <th>Cultura</th>
+            <th>Área</th>
+            <th>Prod. Esperada(sacas)</th>
+            <th>Prod. Total(sacas)</th>
+        </tr>
+         {%for i in  range(0, 4) %}
+            <tr>
+            <td><input type="text" name="cultura"  value={{clientes.cultura}}></td>
+            <td><input type="text" name="area"  value={{clientes.area}}></td>
+            <td><input type="text" name="prod_esperada"  value={{clientes.prod_esperada}}></td>
+            <td><input type="text" name="prod_total"  value={{clientes.prod_total}}></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+</section>
+
+<section class="planCliente" >
+    <div class="divisao">
+    <h4>PROJEÇÃO DE PRODUTIVIDADE EM FUNÇÃO DAS VARIEDADES DE SOJA - ÁREAS FORNECIDAS NA CPR (SAFRA 2019/2020)</h4>
+    <table style="width:100%">
+        <tr>
+            <th>Cultura</th>
+            <th>Variedade</th>
+            <th>Potencial da variedade (sacas)</th>
+            <th>Talhão</th>
+            <th>Área</th>
+          
+        </tr>
+        {%for i in  range(0, 4) %}
+            <tr>
+            <td><input type="text" name="cultura2"  value={{clientes.plan_cliente[i-1].cultura}}></td>
+            <td><input type="text" name="area2"  value={{clientes.plan_cliente[i-1].area}}></td>
+            <td><input type="text" name="variedade"  value={{clientes.plan_cliente[i-1].variedade}}></td>
+            <td><input type="text" name="potencial"  value={{clientes.plan_cliente[i-1].potencial}}></td>
+            <td><input type="text" name="talhao"  value={{clientes.plan_cliente[i-1].talhao}}></td>
+            </tr>
+        {% endfor %}
+    </table>
+</section>
+
+<div class="item">
+    <div>Observações:</div>
+    <div class = "observation">
+        <input type="text" name="obs" placeholder='Deixe suas observações' value={{clientes.obs}}>
+    </div>
+</div>
+
+<button type="submit">Salvar</button>

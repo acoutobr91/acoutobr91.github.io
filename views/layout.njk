@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        {% block head %}
+            <title>App Araguaia</title>
+        {% endblock %}
+
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="links">
+                <a href="/" class = "active">Vistoria</a>
+                <a href="/members">Mapeamento</a>
+                <a href="/venda">Ordem de venda</a>
+            </div>
+
+        </header>
+
+        {% block content %}{% endblock %}
+
+
+        <section class="rodape">
+        <h5>Powered By</h5>
+        <div>
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/1280px-Oracle_logo.svg.png" alt="logoOracle">
+        </div>
+        <div>
+        <img src="https://www.bexpert.com.br/wp-content/uploads/2017/06/logo_azul-1.png" alt="logoBexpert">
+        </div>
+        </section>
+
+    </body>
+</html>
