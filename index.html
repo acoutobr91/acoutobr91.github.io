@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>DEMO - BoB</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- ODA -->
+
+    <script>
+        var chatWidgetSettings = {
+            showConnectionStatus: true,
+            conversationBeginPosition: 'top',
+            openChatOnLoad: false,
+            position: {
+                bottom: '30px',
+                right: '30px'
+            },
+            botIcon: 'images/botIcon.png',
+            personIcon: 'images/userIcon.png',
+            logoIcon: 'images/LogoBexB.png',
+            "i18n": {
+                "en": {
+                    "chatTitle": "Pergunte ao BoB!",
+                    "connected": "online"
+                },
+            },
+            chatTitle: "Pergunte ao BoB!",
+            enableAutocomplete: true,
+            enableClearMessage: true,
+            enableAttachment: false,
+            //initUserHiddenMessage: 'Olá',
+            URI: 'oda-fcf52c84eb3c42ceba4897a0b3438312-da10.data.digitalassistant.oci.oraclecloud.com',
+            channelId: '7cf68ef5-d8fa-4e18-b382-1506ac035ddd'
+        };
+
+        function initSdk(name) {
+            // Default name is Bots
+            if (!name) {
+                name = 'Bots';
+            }
+            setTimeout(() => {
+                const Bots = new WebSDK(chatWidgetSettings); // Initiate library with configuration
+                Bots.connect() // Connect to server
+                    .then(() => {
+                        console.log("Connection Successful");
+                    })
+                    .catch((reason) => {
+                        console.log("Connection failed");
+                        console.log(reason);
+                    });
+                window[name] = Bots;
+            });
+        }
+    </script>
+    <script src="scripts/web-sdk.js" onload="initSdk('Bots')"></script>
+
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <!-- Content -->
+                <section>
+                    <header class="main">
+                        <img class="logo" src="/images/Logo_Bexpert Colorido.png" alt="logo">
+                        <h1>BoB - Bot da BExpert</h1>
+                        <p>Conheça a BExpert e converse com nossa equipe de vendas.</p>
+                    </header>
+                    <div class="information">
+                        <h2>Você pode realizar diálogos como esses:</h2>
+                        <ul>
+                            <li>O que vocês fazem?</li>
+                            <li>Quero falar com um comercial</li>
+                            <li>Quais prêmios tem a BExpert?</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
